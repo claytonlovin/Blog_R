@@ -105,11 +105,11 @@ menu:
           weight: -90
           pre: user
 
-        - identifier: archives
-          name: Arquivos
-          url: archives
-          weight: -70
-          pre: archives
+        #- identifier: archives
+         # name: Arquivos
+         # url: archives
+         # weight: -70
+         # pre: archives
 
         - identifier: search
           name: Pesquisar
