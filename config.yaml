@@ -22,9 +22,9 @@ params:
     rssFullContent: true
     favicon:
 
-    footer:
-        since: 2020
-        customText:
+    #footer:
+     #   since: 2020
+      #  customText:
 
     dateFormat:
         published: Jan 02, 2006

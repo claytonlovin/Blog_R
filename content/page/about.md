@@ -11,20 +11,16 @@ license: CC BY-NC-ND
 title: about
 ---
 
-Written in Go, Hugo is an open source static site generator available under the [Apache Licence 2.0.](https://github.com/gohugoio/hugo/blob/master/LICENSE) Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
+Olá! Feliz em ver você aqui. 
 
-Hugo makes use of a variety of open source projects including:
+Sou graduando em comunicação e marketing em mídias digitais. Trabalho com ferramentas como Google Ads, Facebook Ads e Google Analytics. Atualmente estou me dedicando ao estudo de web data analytics e data visualization.
 
-* https://github.com/yuin/goldmark
-* https://github.com/alecthomas/chroma
-* https://github.com/muesli/smartcrop
-* https://github.com/spf13/cobra
-* https://github.com/spf13/viper
+Nos tempos livres gosto de me envolver com assuntos relacionados a SQL, Estatística, Produtos Digitais, Linguagem R, HTML, CSS, Javascript, enfim… Muitas ferramentas legais. 
 
-Hugo is ideal for blogs, corporate websites, creative portfolios, online magazines, single page applications or even a website with thousands of pages.
+Resolvi desenvolver esse blog utilizando Markdown e compartilhar essas “coisas legais” que estou aprendendo, acredito que o conhecimento por mais pequeno que seja  deve ser compartilhado. 
 
-Hugo is for people who want to hand code their own website without worrying about setting up complicated runtimes, dependencies and databases.
+Sou consumidor ativo de cafeína, músicas, podcasts, séries e filmes. Me recomendem uma boa série ou bom podcasts, me chama no [linkedin](https://www.linkedin.com/in/clayttonsilva/), combinado! 
 
-Websites built with Hugo are extremelly fast, secure and can be deployed anywhere including, AWS, GitHub Pages, Heroku, Netlify and any other hosting provider.
 
-Learn more and contribute on [GitHub](https://github.com/gohugoio).
+bye!! 
+
