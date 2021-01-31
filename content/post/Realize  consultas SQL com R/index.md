@@ -4,147 +4,82 @@ aliases:
 author: Clayton Silva
 categories:
 - SQL
-date: "2019-03-11"
-description: Sample article showcasing basic Markdown syntax and formatting for HTML
-  elements.
+- R
+date: "2021-01-01"
+description: Facilite seus trabalhos de análise, centralizando seus dados em uma ferrameta.
 image: https://images.pexels.com/photos/1183434/pexels-photo-1183434.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
 series:
 - Themes Guide
-tags:
-- markdown
-- css
-- html
-- themes
-title: Realize  consultas SQL com R
+#tags:
+#- markdown
+#- css
+#- html
+#- themes
+title: Consultas SQL Com ODBC & Rstudio
 ---
 
-This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.
-<!--more-->
+Fala analista, tudo bem? Hoje vamos aprender a realizar consultas SQL diretamente pelo R atráves do Rstudio, utilizando o pacote odbc. 
 
-## Headings
+Para esse artigo iremos utilizar o SGBD SQL server express 2017 instalado localmente, a base de dados é a AdventureWorks 2017 disponibilizada pela microsoft para que possamos brincar um pouco. Fique à vontade para utilizar com um banco de dados que você já possui. 
 
-The following HTML `<h1>`—`<h6>` elements represent six levels of section headings. `<h1>` is the highest section level while `<h6>` is the lowest.
+Estando devidamente configurado e hospedada sua base de dados é hora de partir para o Rstudio.
 
-# H1
-## H2
-### H3
-#### H4
-##### H5
-###### H6
+Vamos começar instalando e importando o pacote  ODBC. O ODBC permite acesso a uma série de SGBD utilizando a interface de linguagens de programação. 
 
-## Paragraph
+```{r cars}
+library(odbc)
 
-Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat.
-
-Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat.
-
-## Blockquotes
-
-The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a `footer` or `cite` element, and optionally with in-line changes such as annotations and abbreviations.
-
-#### Blockquote without attribution
-
-> Tiam, ad mint andaepu dandae nostion secatur sequo quae.
-> **Note** that you can use *Markdown syntax* within a blockquote.
-
-#### Blockquote with attribution
-
-> Don't communicate by sharing memory, share memory by communicating.<br>
-> — <cite>Rob Pike[^1]</cite>
-
-[^1]: The above quote is excerpted from Rob Pike's [talk](https://www.youtube.com/watch?v=PAAkCSZUG1c) during Gopherfest, November 18, 2015.
-
-## Tables
-
-Tables aren't part of the core Markdown spec, but Hugo supports supports them out-of-the-box.
-
-   Name | Age
---------|------
-    Bob | 27
-  Alice | 23
-
-#### Inline Markdown within tables
-
-| Italics   | Bold     | Code   |
-| --------  | -------- | ------ |
-| *italics* | **bold** | `code` |
-
-## Code Blocks
-
-#### Code block with backticks
-
-```html
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Example HTML5 Document</title>
-</head>
-<body>
-  <p>Test</p>
-</body>
-</html>
 ```
 
-#### Code block indented with four spaces
+Se você não tem esse pocote instalado, é só adicioná-lo com o comando abaixo.  `install.packages("odbc")`.
 
-    <!doctype html>
-    <html lang="en">
-    <head>
-      <meta charset="utf-8">
-      <title>Example HTML5 Document</title>
-    </head>
-    <body>
-      <p>Test</p>
-    </body>
-    </html>
+O comando abaixo retornar todos os drives disponíveis que estão instalado em sua máquina. Importante que esteja listado `SQL Server`, utilizaremos ele para conectar ao SQL server.
 
-#### Code block with Hugo's internal highlight shortcode
-{{< highlight html >}}
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Example HTML5 Document</title>
-</head>
-<body>
-  <p>Test</p>
-</body>
-</html>
-{{< /highlight >}}
+```{r}
+sort(unique(odbcListDrivers()[[1]]))
+```
 
-## List Types
+O próximo passo é realizar a conexão ao nosso banco de dados, informando o Drive, Server e o Database.
 
-#### Ordered List
+```{r}
+con <- dbConnect(odbc(), 
+                Driver = "SQL Server", 
+                Server = "localhost\\SQLEXPRESS", 
+                Database = "AdventureWorks2017", 
+                Trusted_Connection = "True")
+```
 
-1. First item
-2. Second item
-3. Third item
+Prontinho! Agora estamos conectado ao SQL Server e ao nosso banco de dados `AdventureWorks2017`.
 
-#### Unordered List
+Vamos realizar nossa primeira consulta em nosso banco de dados, e armazenar na variável `Person`. Na sequência iremos imprimir os dados armazenados vindo da nosssa consulta ao banco.
 
-* List item
-* Another item
-* And another item
+```{r}
+person = dbGetQuery(con, "SELECT BusinessEntityID, FirstName, LastName FROM Person.Person")
+head(person, n = 20)
 
-#### Nested list
+```
+Percebeu que eu selecionei os nomes das colunas ao realizar á consulta, isso por que eu já conhecia a tabela do *Schema Person*. No entanto, quando buscamos dados em uma tabela em que não sabemos os nome de suas colunas passsamos o selecionar todos ou `SELECT * FROM nomeTabela`. Esse comando aqui no R não funcionaria devido a uma limitação de dados no ODBC, e isso é exttremamente limitante. 
 
-* Fruit
-  * Apple
-  * Orange
-  * Banana
-* Dairy
-  * Milk
-  * Cheese
 
-## Other Elements — abbr, sub, sup, kbd, mark
+Ainda assim é possível saber os `name` e `type` utilizando a função `odbcListColumns`.
 
-<abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.
+```{r}
+odbcListColumns(con, catalog="AdventureWorks2017", schema="Person", table="Person")
+```
 
-H<sub>2</sub>O
+Há senários que o analista pode não saber os bancos e tabelas disponíveis no sistema, nesse caso a função `odbcListObjects()` o ajuda a identificar. 
 
-X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
+Verificar os daabse disponíveis: 
+```{r}
+odbcListObjects(con)
+```
 
-Press <kbd><kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Delete</kbd></kbd> to end the session.
+Buscando schema na base de dados:
 
-Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.
+```{r, include=True}
+odbcListObjects(con, catalog="AdventureWorks2017", schema="Person")
+```
+
+Se as informações passada aqui te ajudou, compartilha. Forte abraços e até o próxima. 
+
+
