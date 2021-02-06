@@ -1,4 +1,4 @@
-baseurl: https://example.com
+baseurl: /
 languageCode: pt-br
 theme: "hugo-theme-stack"
 paginate: 5
