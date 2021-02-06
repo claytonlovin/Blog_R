@@ -17,7 +17,9 @@ Olá! Se você assim como eu pulou etapas de aprendizado sobre R e só agora se 
 
 Vetores é o tipo mais básico de estrutura para armazenar dados do tipo numérico, lógico, caracter, timestamp(Data e Hora) e Factor. 
 
-Vamos criar uma variável `vector` que recebe o nosso vetor com uma coleção de dados númericos em sequência de 1 a 10.
+Com o Rstudio aberto, vamos ao mão na massa. 
+
+Iniciaremos criando uma variável `vector` que recebe o nosso vetor com uma coleção de dados númericos em sequência de 1 a 10.
 ```{r}
 vector1 <- 1:10
 ```
@@ -42,7 +44,35 @@ vector4
 <h2>Metódos e Funções que ampliam os poderes dos Vetores</h2>
 
 * rep()
-* sum
+* seq()
+* class()
+* length()
+
+A função `rep()` replica valores contido em uma estrutura de dado. O que ela faz é apenas repetir valores contindo em uma coleção.
+
+```{r}
+rep(vector3, times= 3)
+```
+A função também poderá ser utilizada no momentos de decaração da variável, e não seria nada diferente do exemplo acima.
+
+```{r}
+rep(c(2,3,5), times= 2)
+```
+A função `seq()` gera valores seguindo uma ordenção junto com o metodo by
+
+````{r}
+seq(1, 10, by = 2) 
+```
+A função `class()` retorna o tipos de dados que estão contidos em objeto. Esssa função é similar ao `typeof()`.  
+```{r}
+class(vector2)
+```
+Você pode se perguntar qual tipo de dados o vector4 se enquadraria já que ele possuem números e textos. 
+
+Já ouviu aquela frase **"é mas facíl um camelo entrar pelo buraco da gulha..."**, pois então é mais fácil um número passar como caracter do que um cacter como numeros no R.
+```{r}
+class(vector4)
+```
 
 Utilizando o metodo `length()` conseguimos identificar o tamanho de nosso vetor, e encontrar uma posiçã na distribuição de nossos dados. 
 
@@ -50,6 +80,30 @@ Utilizando o metodo `length()` conseguimos identificar o tamanho de nosso vetor,
 length(vector2)
 ```
 
+<h2>Manipulação de dados em vetores</h2>
+
+É possível aplicar operações matemática em vetores, excluir e adicionar valores. 
+
+
 ```{r}
-1+1
+vector3*2
+vector3**2
+vector3/2
+vector3-1
 ```
+
+Para adiconar novos valores é muito simples, basta declarar novamente a variável e concatenar o novos valores. 
+```{r}
+vector2 <- c(vector2, "Matusalem")
+vector2
+vector3 <- c(vector3, 6.5, 7.5, 8)
+vector3
+```
+
+Para remover valores de um vetor é tão fácil com adicioná-lo.
+```{r}
+vector3[-(1)]
+vector3[-(5:7)]
+```
+
+Se essa publicação ajudo você de alguma forma, compartilha em sua redes sociais. Forte Abraço! ;)
