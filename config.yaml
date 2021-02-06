@@ -11,6 +11,7 @@ disqusShortname: hugo-theme-stack
 # Available values: en, fr, id, ja, ko, pt-br, zh-cn
 DefaultContentLanguage: pt-br
 
+
 permalinks:
     post: /p/:slug/
     page: /:slug/

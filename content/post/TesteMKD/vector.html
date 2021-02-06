@@ -1,0 +1,48 @@
+---
+title: "Fundamentos da Linguagem R - VECTOR"
+author: "Clayton Silva"
+date: '2021-02-05'
+output:
+- markdown
+
+description: Aprenda a criar e manipular os principais tipos de dados dentro do R.
+image: https://images.unsplash.com/photo-1606636660488-16a8646f012c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80
+series: Themes Guide
+aliases: migrate-from-jekyl
+categories: R
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>Olá! Se você assim como eu pulou etapas de aprendizado sobre R e só agora se deu conta que tem dificuldades em conceituar e aplicar os tipos fundamentais de estruturas e tipos de dados, dentro da linguagem, prepare-se para sair daqui convertido!</p>
+<p>Vetores é o tipo mais básico de estrutura para armazenar dados do tipo numérico, lógico, caracter, timestamp(Data e Hora) e Factor.</p>
+<p>Vamos criar uma variável <code>vector</code> que recebe o nosso vetor com uma coleção de dados númericos em sequência de 1 a 10.</p>
+<pre class="r"><code>vector1 &lt;- 1:10</code></pre>
+<pre class="r"><code>vector1</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<h2>
+Combinando vetores
+</h2>
+<p>Outra forma bastante comum e útil de criar vetores é utilizando a função concatenar <code>c( )</code> que serve para combinar valores de vetores e listas.</p>
+<pre class="r"><code>vector2 &lt;- c(&quot;João&quot;, &quot;André&quot;,&quot;Juana&quot;, &quot;Pedro&quot;, &quot;José&quot;)
+vector3 &lt;- c(1,2,3,4,5)
+vector4 &lt;- c(vector2, vector3)</code></pre>
+<p>Iremos buscar qual valor do nosso vetor ocupa a quinta posição e na sequência os valores da concatenaçaõ do dois vetores utilizando a função <code>c( )</code>.</p>
+<pre class="r"><code>vector2[5]</code></pre>
+<pre><code>## [1] &quot;José&quot;</code></pre>
+<pre class="r"><code>vector4</code></pre>
+<pre><code>##  [1] &quot;João&quot;  &quot;André&quot; &quot;Juana&quot; &quot;Pedro&quot; &quot;José&quot;  &quot;1&quot;     &quot;2&quot;     &quot;3&quot;     &quot;4&quot;    
+## [10] &quot;5&quot;</code></pre>
+<h2>
+Metódos e Funções que ampliam os poderes dos Vetores
+</h2>
+<ul>
+<li>rep()</li>
+<li>sum</li>
+</ul>
+<p>Utilizando o metodo <code>length()</code> conseguimos identificar o tamanho de nosso vetor, e encontrar uma posiçã na distribuição de nossos dados.</p>
+<pre class="r"><code>length(vector2)</code></pre>
+<pre><code>## [1] 5</code></pre>
+<pre class="r"><code>1+1</code></pre>
+<pre><code>## [1] 2</code></pre>

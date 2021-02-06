@@ -1,0 +1,55 @@
+---
+title: "Fundamentos da Linguagem R - VECTOR"
+author: "Clayton Silva"
+date: '2021-02-05'
+output:
+- markdown
+
+description: Aprenda a criar e manipular os principais tipos de dados dentro do R.
+image: https://images.unsplash.com/photo-1606636660488-16a8646f012c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80
+series: Themes Guide
+aliases: migrate-from-jekyl
+categories: R
+---
+
+Olá! Se você assim como eu pulou etapas de aprendizado sobre R e só agora se deu conta que tem dificuldades em conceituar e aplicar os tipos fundamentais de estruturas e tipos de dados, dentro da linguagem, prepare-se para sair daqui convertido! 
+
+
+Vetores é o tipo mais básico de estrutura para armazenar dados do tipo numérico, lógico, caracter, timestamp(Data e Hora) e Factor. 
+
+Vamos criar uma variável `vector` que recebe o nosso vetor com uma coleção de dados númericos em sequência de 1 a 10.
+```{r}
+vector1 <- 1:10
+```
+
+```{r}
+vector1
+```
+<h2>Combinando vetores</h2>
+
+Outra forma bastante comum e útil de criar vetores é utilizando a função concatenar `c( )` que serve para combinar valores de vetores e listas.
+```{r}
+vector2 <- c("João", "André","Juana", "Pedro", "José")
+vector3 <- c(1,2,3,4,5)
+vector4 <- c(vector2, vector3)
+```
+Iremos buscar qual valor do nosso vetor ocupa a quinta  posição e na sequência os valores da concatenaçaõ do dois vetores utilizando a função `c( )`. 
+```{r}
+vector2[5]
+vector4
+```
+
+<h2>Metódos e Funções que ampliam os poderes dos Vetores</h2>
+
+* rep()
+* sum
+
+Utilizando o metodo `length()` conseguimos identificar o tamanho de nosso vetor, e encontrar uma posiçã na distribuição de nossos dados. 
+
+```{r}
+length(vector2)
+```
+
+```{r}
+1+1
+```
