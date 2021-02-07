@@ -1,23 +1,22 @@
 ---
-title: "Fundamentos da Linguagem R - VECTOR"
+title: "Fundamentos da Linguagem R - VETORES"
 author: "Clayton Silva"
 date: '2021-02-05'
 output:
 - markdown
 
-description: Aprenda a criar e manipular os principais tipos de dados dentro do R.
+description: Aprenda a criar e manipular um dos principais tipos de dados dentro do R.
 image: https://images.unsplash.com/photo-1606636660488-16a8646f012c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80
 series: Themes Guide
 aliases: migrate-from-jekyl
 categories: R
 ---
 
-Olá! Se você assim como eu pulou etapas de aprendizado sobre R e só agora se deu conta que tem dificuldades em conceituar e aplicar os tipos fundamentais de estruturas e tipos de dados, dentro da linguagem, prepare-se para sair daqui convertido! 
+Olá! Se você assim como eu pulou etapas no aprendizado sobre R e só agora se deu conta das dificuldades em conceituar e aplicar os tipos fundamentais de estruturas e tipos de dados dentro da linguagem, talvez esse material posso ti ajudar. 
 
 
-Vetores é o tipo mais básico de estrutura para armazenar dados do tipo numérico, lógico, caracter, timestamp(Data e Hora) e Factor. 
+Vetores é o tipo mais básico de estrutura para armazenar dados do tipo numérico, lógico, caracter, timestamp(Data e Hora) e Fatores. 
 
-Com o Rstudio aberto, vamos ao mão na massa. 
 
 Iniciaremos criando uma variável `vector` que recebe o nosso vetor com uma coleção de dados númericos em sequência de 1 a 10.
 ```{r}
@@ -35,7 +34,7 @@ vector2 <- c("João", "André","Juana", "Pedro", "José")
 vector3 <- c(1,2,3,4,5)
 vector4 <- c(vector2, vector3)
 ```
-Iremos buscar qual valor do nosso vetor ocupa a quinta  posição e na sequência os valores da concatenaçaõ do dois vetores utilizando a função `c( )`. 
+Iremos buscar qual valor do nosso vetor ocupa a quinta posição e na sequência os valores da concatenaçaõ do dois vetores utilizando a função `c( )`. 
 ```{r}
 vector2[5]
 vector4
@@ -48,17 +47,17 @@ vector4
 * class()
 * length()
 
-A função `rep()` replica valores contido em uma estrutura de dado. O que ela faz é apenas repetir valores contindo em uma coleção.
+A função `rep()` replica valores contidos em estrutura de dados. O que ela faz é apenas repetir valores contindo em uma coleção.
 
 ```{r}
 rep(vector3, times= 3)
 ```
-A função também poderá ser utilizada no momentos de decaração da variável, e não seria nada diferente do exemplo acima.
+A função também poderá ser utilizada nos momentos de declaração da variável, e não seria nada diferente do exemplo acima.
 
 ```{r}
 rep(c(2,3,5), times= 2)
 ```
-A função `seq()` gera valores seguindo uma ordenção junto com o metodo by
+A função `seq()` gera valores seguindo uma ordenção junto com o metodo by.
 
 ````{r}
 seq(1, 10, by = 2) 
@@ -69,12 +68,12 @@ class(vector2)
 ```
 Você pode se perguntar qual tipo de dados o vector4 se enquadraria já que ele possuem números e textos. 
 
-Já ouviu aquela frase **"é mas facíl um camelo entrar pelo buraco da gulha..."**, pois então é mais fácil um número passar como caracter do que um cacter como numeros no R.
+Já ouviu aquela frase **"é mas facíl um camelo entrar pelo buraco da gulha..."**, pois então, é mais fácil um número ser ideficado como caracter do que um caracter como número no R.
 ```{r}
 class(vector4)
 ```
 
-Utilizando o metodo `length()` conseguimos identificar o tamanho de nosso vetor, e encontrar uma posiçã na distribuição de nossos dados. 
+Utilizando o metodo `length()` conseguimos identificar o tamanho de nosso vetor, e encontrar uma posição na distribuição de nossos dados. 
 
 ```{r}
 length(vector2)
@@ -82,7 +81,7 @@ length(vector2)
 
 <h2>Manipulação de dados em vetores</h2>
 
-É possível aplicar operações matemática em vetores, excluir e adicionar valores. 
+É possível aplicar, operações matemática em vetores, excluir e adicionar valores. 
 
 
 ```{r}
@@ -106,4 +105,6 @@ vector3[-(1)]
 vector3[-(5:7)]
 ```
 
-Se essa publicação ajudo você de alguma forma, compartilha em sua redes sociais. Forte Abraço! ;)
+Se essa publicação ajudou você de alguma forma, compartilha em sueus perfis sociais.
+
+Forte Abraço! ;)
